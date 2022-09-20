@@ -1,5 +1,11 @@
+db.sqlite3
+db.*
 ../bin/
 ../lib/
 ../lib64
 ../pyvenv.cfg
 ../share/
+*/__pycache__/*
+*/*/__pycache__/*
+*/.pyc
+/venv
