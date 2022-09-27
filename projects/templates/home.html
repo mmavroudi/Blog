@@ -12,11 +12,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type="text/css">
 	/* here you can add  styles */
+	.form-control{
+	    border-color: #009a44;
+	    border-width: 2px;
+	}
+	.btn-outline-secondary{
+	    color: #009a44;
+	    border-color: #b9c1c8;
+	    line-height: 18px;
+	}
+    .navbar-expand-lg{
+        background-color: transparent;
+    }
 	.card-title{
 		color: red;
 	}
-    </style>
+	.nav-item{
+	    color: grey;
+	}
+    .navbar-nav .nav-link.active{
+        color: #009a44;
+    }
 
+    </style>
   </head>
   <body>
     <header>
@@ -27,18 +45,19 @@
           </a>
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search the blog" aria-label="Search">
-            <i class="bi bi-search">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="35" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-              </svg>
-            </i>
+              <i class="bi bi-search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="35" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+              </i>
+            </input>
           </form>
             <button type="button" class="btn btn-outline-secondary">Buy on Swappa</button>
             <button type="button" class="btn btn-outline-secondary">Sell on Swappa</button>
         </div>
       </nav>
       <div class="container">
-        <nav class="navbar navbar-expand-lg bg-light">
+        <nav class="navbar navbar-expand-lg">
           <div class="container-fluid">
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
