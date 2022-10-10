@@ -25,6 +25,7 @@ import projects.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', projects.views.home, name='home'),
+    path('post_detail', projects.views.post_detail_view, name='post_detail_view'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
