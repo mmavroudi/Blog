@@ -1,5 +1,11 @@
 {% load static %}
 
+{% for post in posts.all %}
+
+<p>{{ post.title }}</p>
+
+{% endfor %}
+
 <!doctype html>
 <html lang="en">
   {% load static %}
