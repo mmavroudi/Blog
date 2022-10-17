@@ -26,6 +26,8 @@ def room86(request):
 
 def random_posts(request):
     """ we'll create here a sample functionality similar to what we want for room products using posts instead """
+    import random
+    mylist = Post.objects
+    print(random.choice(mylist))
 
-    # do what #14 is describing  here
 
