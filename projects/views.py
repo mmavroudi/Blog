@@ -18,16 +18,19 @@ def post_detail_view(request):
 
 def room86(request):
     print(request)
-    posts = Post.objects
+    random_posts(request)
     template = "room86.html"
     context = {}
-    return render(request, template, {'posts': posts}, context)
+    return render(request, template, context)
 
 
 def random_posts(request):
     """ we'll create here a sample functionality similar to what we want for room products using posts instead """
     import random
-    mylist = Post.objects
-    print(random.choice(mylist))
+    mylist = Post.objects.all
+    context = {
+        'mycoctails': mylist
+    }
+    print(random.choice(context))
 
 
