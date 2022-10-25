@@ -24,9 +24,9 @@ def room86(request):
     template = "room86.html"
     context = {
         'myposts': posts,
-        'randompost': featured_post
+        'featured_post': featured_post
     }
-    return render(request, template, context)
+    return render(request, template, {'posts': posts}, context)
 
 
 
