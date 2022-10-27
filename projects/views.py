@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Post
 import random
 
+
 # Create your views here.
 def home(request):
     posts = Post.objects
@@ -16,17 +17,17 @@ def post_detail_view(request):
     return render(request, template, {'posts': posts}, context)
 
 
-def room86(request):
-    import random
-    print(request)
+def random_post(request):
     posts = Post.objects.all()
-    featured_post = random.choice(posts)
-    template = "room86.html"
+    rand_post = random.choice(posts)
+
+    print(rand_post)
+    template = "random_post_view.html"
     context = {
-        'myposts': posts,
-        'featured_post': featured_post
+        'posts': posts,
+        'rand_post': rand_post
     }
-    return render(request, template, {'posts': posts}, context)
+    return render(request, template, context)
 
 
 
