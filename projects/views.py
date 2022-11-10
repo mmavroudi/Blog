@@ -20,12 +20,14 @@ def post_detail_view(request):
 def random_post(request):
     posts = Post.objects.all()
     rand_post = random.choice(posts)
+    content_post = Post.content
 
     print(rand_post)
     template = "random_post_view.html"
     context = {
         'posts': posts,
-        'rand_post': rand_post
+        'rand_post': rand_post,
+        'content_post': content_post
     }
     return render(request, template, context)
 
