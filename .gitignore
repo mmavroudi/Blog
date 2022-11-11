@@ -11,3 +11,4 @@ projects/__pycache__/*.pyc
 */.pyc
 static/admin/
 /venv
+/statics_collect/*
