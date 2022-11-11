@@ -115,7 +115,7 @@ USE_TZ = True
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'statics_collect'),
-    os.path.join(BASE_DIR, 'statics_collect/js', 'statics_collect/js/dist'),
+    os.path.join(BASE_DIR, 'statics_collect/js', 'dist'),
 ]
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
