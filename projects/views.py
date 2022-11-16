@@ -1,14 +1,19 @@
 from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse, HttpResponseRedirect
+from django.template import loader
 from .models import Post
 import random
 
 
 # Create your views here.
 def home(request):
-    print('Hello ')
     posts = Post.objects.all()
     posts.count()
-    return render(request, 'home.html', {'posts': posts})
+    template = loader.get_template('home.html')
+    context = {
+        'posts': posts,
+    }
+    return HttpResponse(template.render(context, request))
 
 
 def post_detail_view(request):
