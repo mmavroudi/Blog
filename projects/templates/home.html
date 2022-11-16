@@ -9,6 +9,16 @@
     <section id="hero-slider" class="hero-slider">
       <div class="container-md" data-aos="fade-in">
         <div class="row">
+
+
+
+          {{ posts.count }}
+          {% for post in posts %}
+
+  {{ post }}
+
+
+{% endfor %}
           <div class="col-12">
             <div class="swiper sliderFeaturedPosts">
               <div class="swiper-wrapper">

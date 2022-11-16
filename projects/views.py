@@ -6,7 +6,8 @@ import random
 # Create your views here.
 def home(request):
     print('Hello ')
-    posts = Post.objects
+    posts = Post.objects.all()
+    posts.count()
     return render(request, 'home.html', {'posts': posts})
 
 
