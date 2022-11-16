@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Post
 import random
 
 
 # Create your views here.
 def home(request):
+    print('Hello ')
     posts = Post.objects
     return render(request, 'home.html', {'posts': posts})
 
@@ -31,6 +32,11 @@ def random_post(request):
     }
     return render(request, template, context)
 
+
+def single_post_view(request, post_id):
+    print("Single Post")
+    single_post = get_object_or_404(Post, pk=post_id)
+    return render(request, 'single_post.html', {'post': single_post})
 
 
 
