@@ -8,10 +8,13 @@ import random
 # Create your views here.
 def home(request):
     posts = Post.objects.all()
-    posts.count()
+    rand_post = random.choice(posts)
+    content_post = Post.content
     template = loader.get_template('home.html')
     context = {
         'posts': posts,
+        'rand_post': rand_post,
+        'content_post': content_post
     }
     return HttpResponse(template.render(context, request))
 
