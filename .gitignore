@@ -5,9 +5,11 @@ db.*
 ../lib64
 ../pyvenv.cfg
 ../share/
+__pycache__/
 */__pycache__/*.pyc
 projects/__pycache__/*.pyc
 */*/__pycache__/*.pyc
 */.pyc
-static/admin/
 /venv
+/statics_collect/*
+.idea/
