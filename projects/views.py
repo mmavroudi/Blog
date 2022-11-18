@@ -9,12 +9,10 @@ import random
 def home(request):
     posts = Post.objects.all()
     rand_post = random.choice(posts)
-    content_post = Post.content
     template = loader.get_template('home.html')
     context = {
         'posts': posts,
         'rand_post': rand_post,
-        'content_post': content_post
     }
     return HttpResponse(template.render(context, request))
 
