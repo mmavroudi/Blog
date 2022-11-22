@@ -13,3 +13,15 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+class Category(models.Model):
+    title = models.CharField(max_length=50)
+    subtitle = models.CharField(max_length=100)
+    slug = models.SlugField(blank=True, unique=True)
+    thumbnail = models.ImageField(blank=True, unique=True)
+
+    def __str__(self):
+        return self.title
+
+
+
