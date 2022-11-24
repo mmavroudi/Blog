@@ -28,5 +28,4 @@ urlpatterns = [
     path('random-post', projects.views.random_post, name='random_post'),
     path('single-post/<int:post_id>', projects.views.single_post_view, name='single_post'),
     path('category/<slug:category_slug>', projects.views.category_view, name='category')
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

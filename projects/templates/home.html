@@ -69,13 +69,13 @@
         <div class="row g-5">
           <div class="col-lg-4">
             <div class="post-entry-1 lg">
-              <a href="single-post.html"><img src="{{ STATIC_URL }}/img/post-landscape-1.jpg" alt="" class="img-fluid"></a>
+              <a href="single-post.html"><img src="{{ MEDIA_URL }}{{ rand_post.image }}" alt="" class="img-fluid"></a>
               <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
                 <h2><a href="single-post.html">{{ rand_post.title }}</a></h2>
               <p class="mb-4 d-block">{{ rand_post.content|truncatewords:30 }}</p>
 
               <div class="d-flex align-items-center author">
-                <div class="photo"><img src="assets/img/person-1.jpg" alt="" class="img-fluid"></div>
+                <div class="photo"><img src="{{ STATIC_URL }}img/person-1.jpg" alt="" class="img-fluid"></div>
                 <div class="name">
                   <h3 class="m-0 p-0">Cameron Williamson</h3>
                 </div>
@@ -90,7 +90,7 @@
               <div class="col-lg-4 border-start custom-border">
                 {% for post in posts|slice:":3" %}
                 <div class="post-entry-1">
-                  <a href="single-post.html"><img src="assets/img/post-landscape-2.jpg" alt="" class="img-fluid"></a>
+                  <a href="single-post.html"><img src="{{ MEDIA_URL }}{{ post.image }}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">Sport</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
                   <h2><a href="single-post.html">{{ post.title }}</a></h2>
                 </div>
@@ -100,7 +100,7 @@
               <div class="col-lg-4 border-start custom-border">
                 {% for post in posts|slice:"3:6" %}
                 <div class="post-entry-1">
-                  <a href="single-post.html"><img src="assets/img/post-landscape-2.jpg" alt="" class="img-fluid"></a>
+                  <a href="single-post.html"><img src="{{ MEDIA_URL }}{{ post.image }}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">Sport</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
                   <h2><a href="single-post.html">{{ post.title }}</a></h2>
                 </div>
