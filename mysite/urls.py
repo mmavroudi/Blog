@@ -27,6 +27,7 @@ urlpatterns = [
     path('posts', projects.views.post_detail_view, name='post_detail_view'),
     path('random-post', projects.views.random_post, name='random_post'),
     path('single-post/<int:post_id>', projects.views.single_post_view, name='single_post'),
-    path('category/<slug:category_slug>', projects.views.category_view, name='category')
+    path('category/<slug:category_slug>', projects.views.category_view, name='category'),
+    path('about', projects.views.about_view, name='about')
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
