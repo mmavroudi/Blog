@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
-from .models import Post
+from .models import Post, Category
 import random
 
 
@@ -15,7 +15,6 @@ def home(request):
         'rand_post': rand_post,
     }
     return HttpResponse(template.render(context, request))
-
 
 def post_detail_view(request):
     print(request)
@@ -44,6 +43,12 @@ def single_post_view(request, post_id):
     print("Single Post")
     single_post = get_object_or_404(Post, pk=post_id)
     return render(request, 'single_post.html', {'post': single_post})
+
+def category_view(request, category_slug):
+    print("Category")
+    category = get_object_or_404(Category, slug=category_slug)
+    return render(request, 'category.html', {'category': category})
+
 
 
 
