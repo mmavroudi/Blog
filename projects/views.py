@@ -49,6 +49,9 @@ def category_view(request, category_slug):
     category = get_object_or_404(Category, slug=category_slug)
     return render(request, 'category.html', {'category': category})
 
+#def about_view(request):
+ #   template = "about.html"
+ #   return render(request, template)
 
 
 
