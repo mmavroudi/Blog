@@ -32,5 +32,4 @@ urlpatterns = [
     path('category/<slug:category_slug>', projects.views.category_view, name='category'),
     path('about/', TemplateView.as_view(template_name='about.html'))
    #path('about', projects.views.about_view, name='about')
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
