@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.generic import TemplateView
 
 import projects
 import projects.views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,6 +30,7 @@ urlpatterns = [
     path('random-post', projects.views.random_post, name='random_post'),
     path('single-post/<int:post_id>', projects.views.single_post_view, name='single_post'),
     path('category/<slug:category_slug>', projects.views.category_view, name='category'),
-    path('about', projects.views.about_view, name='about')
+    path('about/', TemplateView.as_view(template_name='about.html'))
+   #path('about', projects.views.about_view, name='about')
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
