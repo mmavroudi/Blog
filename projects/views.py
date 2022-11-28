@@ -10,9 +10,15 @@ def home(request):
     posts = Post.objects.all()
     rand_post = random.choice(posts)
     template = loader.get_template('home.html')
+    culture_posts = posts.objects.filter(categories="Culture")
+    business_posts = posts.objects.filter(categories="Business")
+    lifestyle_posts = posts.objects.filter(categories="Lifestyle")
     context = {
         'posts': posts,
         'rand_post': rand_post,
+        'culture_posts': culture_posts,
+        'business_posts': business_posts,
+        'lifestyle_posts': lifestyle_posts,
     }
     return HttpResponse(template.render(context, request))
 
