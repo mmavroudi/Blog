@@ -178,7 +178,9 @@
               </a>
               <div>
                 <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                <h3><a href="single-post.html">{{ culture_posts.title }}</a></h3>
+                <h3><a href="single-post.html">{% for posts in culture_posts %}
+                                                    {{ culture_posts.title }}
+                                               {% endfor %}</a></h3>
                 <p>{{ culture_posts.content|truncatewords:30 }}</p>
                 <div class="d-flex align-items-center author">
                   <div class="photo"><img src="assets/img/person-2.jpg" alt="" class="img-fluid"></div>
