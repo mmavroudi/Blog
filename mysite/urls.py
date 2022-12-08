@@ -25,7 +25,7 @@ import projects.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', projects.views.home, name='home'),
+    path('home', projects.views.home, name='home'),
     path('posts', projects.views.post_detail_view, name='post_detail_view'),
     path('random-post', projects.views.random_post, name='random_post'),
     path('single-post/<int:post_id>', projects.views.single_post_view, name='single_post'),
