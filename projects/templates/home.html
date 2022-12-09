@@ -171,19 +171,19 @@
 
         <div class="row">
           <div class="col-md-9">
-
+            {% for culture_posts in culture_posts|slice:"4:5" %}
             <div class="d-lg-flex post-entry-2">
               <a href="single-post.html" class="me-4 thumbnail mb-4 mb-lg-0 d-inline-block">
-                <img src="assets/img/post-landscape-6.jpg" alt="" class="img-fluid">
+                <img src="{{ MEDIA_URL }}{{ culture_posts.image }}" alt="" class="img-fluid">
               </a>
               <div>
                 <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                {% for culture_posts in culture_posts|slice:"4:5" %}
+
                 <h3><a href="single-post.html">{{ culture_posts.title }}</a></h3>
                 <p>{{ culture_posts.content|truncatewords:30 }}</p>
                 {% endfor %}
                 <div class="d-flex align-items-center author">
-                  <div class="photo"><img src="assets/img/person-2.jpg" alt="" class="img-fluid"></div>
+                  <div class="photo"><img src="{{ STATIC_URL }}img/person-2.jpg" alt="" class="img-fluid"></div>
                   <div class="name">
                     <h3 class="m-0 p-0">Wade Warren</h3>
                   </div>
@@ -195,7 +195,7 @@
               <div class="col-lg-4">
                 {% for culture_posts in culture_posts|slice:":1" %}
                 <div class="post-entry-1 border-bottom">
-                  <a href="single-post.html"><img src="assets/img/post-landscape-1.jpg" alt="" class="img-fluid"></a>
+                  <a href="single-post.html"><img src="{{ MEDIA_URL }}{{ culture_posts.image }}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
                   <h2 class="mb-2"><a href="single-post.html">{{ culture_posts.title }}</a></h2>
                   <span class="author mb-3 d-block">Jenny Wilson</span>
@@ -204,6 +204,7 @@
                 {% endfor %}
 
                 {% for culture_posts in culture_posts|slice:"1:2" %}
+                <!--<a href="single-post.html"><img src="{{ MEDIA_URL }}{{ culture_posts.image }}" alt="" class="img-fluid"></a>--!>
                 <div class="post-entry-1">
                   <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
                   <h2 class="mb-2"><a href="single-post.html">{{ culture_posts.title }}</a></h2>
@@ -214,7 +215,7 @@
               <div class="col-lg-8">
                 {% for culture_posts in culture_posts|slice:"3:4" %}
                 <div class="post-entry-1">
-                  <a href="single-post.html"><img src="assets/img/post-landscape-2.jpg" alt="" class="img-fluid"></a>
+                  <a href="single-post.html"><img src="{{ MEDIA_URL }}{{ culture_posts.image }}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
                   <h2 class="mb-2"><a href="single-post.html">{{ culture_posts.title }}</a></h2>
                   <span class="author mb-3 d-block">Jenny Wilson</span>
@@ -233,36 +234,6 @@
               <span class="author mb-3 d-block">Jenny Wilson</span>
             </div>
             {% endfor %}
-
-            <!--<div class="post-entry-1 border-bottom">
-              <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-              <h2 class="mb-2"><a href="single-post.html">17 Pictures of Medium Length Hair in Layers That Will Inspire Your New Haircut</a></h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
-            </div>
-
-            <div class="post-entry-1 border-bottom">
-              <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-              <h2 class="mb-2"><a href="single-post.html">9 Half-up/half-down Hairstyles for Long and Medium Hair</a></h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
-            </div>
-
-            <div class="post-entry-1 border-bottom">
-              <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-              <h2 class="mb-2"><a href="single-post.html">Life Insurance And Pregnancy: A Working Mom’s Guide</a></h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
-            </div>
-
-            <div class="post-entry-1 border-bottom">
-              <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-              <h2 class="mb-2"><a href="single-post.html">The Best Homemade Masks for Face (keep the Pimples Away)</a></h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
-            </div>
-
-            <div class="post-entry-1 border-bottom">
-              <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-              <h2 class="mb-2"><a href="single-post.html">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
-            </div>--!>
           </div>
         </div>
       </div>
@@ -279,19 +250,18 @@
 
         <div class="row">
           <div class="col-md-9 order-md-2">
-
+            {% for business_posts in business_posts|slice:":1" %}
             <div class="d-lg-flex post-entry-2">
               <a href="single-post.html" class="me-4 thumbnail d-inline-block mb-4 mb-lg-0">
-                <img src="assets/img/post-landscape-3.jpg" alt="" class="img-fluid">
+                <img src="{{ MEDIA_URL }}{{ business_posts.image }}" alt="" class="img-fluid">
               </a>
               <div>
                 <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                {% for business_posts in business_posts|slice:":1" %}
                 <h3><a href="single-post.html">{{ business_posts.title }}</a></h3>
                 <p>{{ business_posts.content|truncatewords:30 }}</p>
                 {% endfor %}
                 <div class="d-flex align-items-center author">
-                  <div class="photo"><img src="assets/img/person-4.jpg" alt="" class="img-fluid"></div>
+                  <div class="photo"><img src="{{ STATIC_URL }}img/person-3.jpg" alt="" class="img-fluid"></div>
                   <div class="name">
                     <h3 class="m-0 p-0">Wade Warren</h3>
                   </div>
@@ -301,10 +271,10 @@
 
             <div class="row">
               <div class="col-lg-4">
+                {% for business_posts in business_posts|slice:"1:2" %}
                 <div class="post-entry-1 border-bottom">
-                  <a href="single-post.html"><img src="assets/img/post-landscape-5.jpg" alt="" class="img-fluid"></a>
+                  <a href="single-post.html"><img src="{{ MEDIA_URL }}{{ business_posts.image }}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                  {% for business_posts in business_posts|slice:"1:2" %}
                   <h2 class="mb-2"><a href="single-post.html">{{ business_posts.title }}</a></h2>
                   <span class="author mb-3 d-block">Jenny Wilson</span>
                   <p class="mb-4 d-block">{{ business_posts.content|truncatewords:30 }}</p>
@@ -320,10 +290,10 @@
                 </div>
               </div>
               <div class="col-lg-8">
+                {% for business_posts in business_posts|slice:"3:4" %}
                 <div class="post-entry-1">
-                  <a href="single-post.html"><img src="assets/img/post-landscape-7.jpg" alt="" class="img-fluid"></a>
+                  <a href="single-post.html"><img src="{{ MEDIA_URL }}{{ business_posts.image }}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                  {% for business_posts in business_posts|slice:"3:4" %}
                   <h2 class="mb-2"><a href="single-post.html">{{ business_posts.title }}</a></h2>
                   <span class="author mb-3 d-block">Jenny Wilson</span>
                   <p class="mb-4 d-block">{{ business_posts.content|truncatewords:30 }}</p>
@@ -340,36 +310,6 @@
               <span class="author mb-3 d-block">Jenny Wilson</span>
             </div>
             {% endfor %}
-
-            <!--<div class="post-entry-1 border-bottom">
-              <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-              <h2 class="mb-2"><a href="single-post.html">17 Pictures of Medium Length Hair in Layers That Will Inspire Your New Haircut</a></h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
-            </div>
-
-            <div class="post-entry-1 border-bottom">
-              <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-              <h2 class="mb-2"><a href="single-post.html">9 Half-up/half-down Hairstyles for Long and Medium Hair</a></h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
-            </div>
-
-            <div class="post-entry-1 border-bottom">
-              <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-              <h2 class="mb-2"><a href="single-post.html">Life Insurance And Pregnancy: A Working Mom’s Guide</a></h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
-            </div>
-
-            <div class="post-entry-1 border-bottom">
-              <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-              <h2 class="mb-2"><a href="single-post.html">The Best Homemade Masks for Face (keep the Pimples Away)</a></h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
-            </div>
-
-            <div class="post-entry-1 border-bottom">
-              <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-              <h2 class="mb-2"><a href="single-post.html">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
-            </div>--!>
           </div>
         </div>
       </div>
@@ -386,16 +326,16 @@
 
         <div class="row g-5">
           <div class="col-lg-4">
+            {% for lifestyle_posts in lifestyle_posts|slice:":1" %}
             <div class="post-entry-1 lg">
-              <a href="single-post.html"><img src="assets/img/post-landscape-8.jpg" alt="" class="img-fluid"></a>
+              <a href="single-post.html"><img src="{{ MEDIA_URL }}{{ lifestyle_posts.image }}" alt="" class="img-fluid"></a>
               <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-              {% for lifestyle_posts in lifestyle_posts|slice:":1" %}
               <h2><a href="single-post.html">{{ lifestyle_posts.title }}</a></h2>
               <p class="mb-4 d-block">{{ lifestyle_posts.content|truncatewords:30 }}</p>
               {% endfor %}
 
               <div class="d-flex align-items-center author">
-                <div class="photo"><img src="assets/img/person-7.jpg" alt="" class="img-fluid"></div>
+                <div class="photo"><img src="{{ STATIC_URL }}img/person-5.jpg" alt="" class="img-fluid"></div>
                 <div class="name">
                   <h3 class="m-0 p-0">Esther Howard</h3>
                 </div>
@@ -409,13 +349,6 @@
               <span class="author mb-3 d-block">Jenny Wilson</span>
             </div>
             {% endfor %}
-
-            <!--<div class="post-entry-1">
-              <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-              <h2 class="mb-2"><a href="single-post.html">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
-            </div>--!>
-
           </div>
 
           <div class="col-lg-8">
@@ -423,41 +356,21 @@
               <div class="col-lg-4 border-start custom-border">
                 {% for lifestyle_posts in lifestyle_posts|slice:":3" %}
                 <div class="post-entry-1">
-                  <a href="single-post.html"><img src="assets/img/post-landscape-6.jpg" alt="" class="img-fluid"></a>
+                  <a href="single-post.html"><img src="{{ MEDIA_URL }}{{ lifestyle_posts.image }}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
                   <h2><a href="single-post.html">{{ lifestyle_posts.title }}</a></h2>
                 </div>
                 {% endfor %}
-                <!--<div class="post-entry-1">
-                  <a href="single-post.html"><img src="assets/img/post-landscape-5.jpg" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 17th '22</span></div>
-                  <h2><a href="single-post.html">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
-                </div>
-                <div class="post-entry-1">
-                  <a href="single-post.html"><img src="assets/img/post-landscape-4.jpg" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Mar 15th '22</span></div>
-                  <h2><a href="single-post.html">Why Craigslist Tampa Is One of The Most Interesting Places On the Web?</a></h2>
-                </div>--!>
               </div>
 
               <div class="col-lg-4 border-start custom-border">
                 {% for lifestyle_posts in lifestyle_posts|slice:"3:6" %}
                 <div class="post-entry-1">
-                  <a href="single-post.html"><img src="assets/img/post-landscape-3.jpg" alt="" class="img-fluid"></a>
+                  <a href="single-post.html"><img src="{{ MEDIA_URL }}{{ lifestyle_posts.image }}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
                   <h2><a href="single-post.html">{{ lifestyle_posts.title }}</a></h2>
                 </div>
                 {% endfor %}
-                <!--<div class="post-entry-1">
-                  <a href="single-post.html"><img src="assets/img/post-landscape-2.jpg" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Mar 1st '22</span></div>
-                  <h2><a href="single-post.html">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
-                </div>
-                <div class="post-entry-1">
-                  <a href="single-post.html"><img src="assets/img/post-landscape-1.jpg" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                  <h2><a href="single-post.html">5 Great Startup Tips for Female Founders</a></h2>
-                </div>--!>
               </div>
 
               <div class="col-lg-4">
@@ -468,37 +381,6 @@
                   <span class="author mb-3 d-block">Jenny Wilson</span>
                 </div>
                 {% endfor %}
-
-                <!--<div class="post-entry-1 border-bottom">
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                  <h2 class="mb-2"><a href="single-post.html">17 Pictures of Medium Length Hair in Layers That Will Inspire Your New Haircut</a></h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
-                </div>
-
-                <div class="post-entry-1 border-bottom">
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                  <h2 class="mb-2"><a href="single-post.html">9 Half-up/half-down Hairstyles for Long and Medium Hair</a></h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
-                </div>
-
-                <div class="post-entry-1 border-bottom">
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                  <h2 class="mb-2"><a href="single-post.html">Life Insurance And Pregnancy: A Working Mom’s Guide</a></h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
-                </div>
-
-                <div class="post-entry-1 border-bottom">
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                  <h2 class="mb-2"><a href="single-post.html">The Best Homemade Masks for Face (keep the Pimples Away)</a></h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
-                </div>
-
-                <div class="post-entry-1 border-bottom">
-                  <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                  <h2 class="mb-2"><a href="single-post.html">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
-                </div>--!>
-
               </div>
             </div>
           </div>
