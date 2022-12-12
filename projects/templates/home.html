@@ -160,7 +160,7 @@
       </div>
     </section> <!-- End Post Grid Section -->
 
-    <!-- ======= Culture Category Section ======= -->
+        <!-- ======= Culture Category Section ======= -->
     <section class="category-section">
       <div class="container" data-aos="fade-up">
 
@@ -171,19 +171,19 @@
 
         <div class="row">
           <div class="col-md-9">
-            {% for culture_posts in culture_posts|slice:"4:5" %}
+
             <div class="d-lg-flex post-entry-2">
+              {% for culture_posts in culture_posts|slice:":1" %}
               <a href="single-post.html" class="me-4 thumbnail mb-4 mb-lg-0 d-inline-block">
-                <img src="{{ MEDIA_URL }}{{ culture_posts.image }}" alt="" class="img-fluid">
+                <img src="{{MEDIA_URL}}{{ culture_posts.image }}" alt="" class="img-fluid">
               </a>
               <div>
                 <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-
                 <h3><a href="single-post.html">{{ culture_posts.title }}</a></h3>
-                <p>{{ culture_posts.content|truncatewords:30 }}</p>
-                {% endfor %}
+                <p> {{ culture_posts.content|truncatewords:30 }}</p>
+              {% endfor %}
                 <div class="d-flex align-items-center author">
-                  <div class="photo"><img src="{{ STATIC_URL }}img/person-2.jpg" alt="" class="img-fluid"></div>
+                  <div class="photo"><img src="{{STATIC_URL}}img/person-1.jpg" alt="" class="img-fluid"></div>
                   <div class="name">
                     <h3 class="m-0 p-0">Wade Warren</h3>
                   </div>
@@ -193,18 +193,16 @@
 
             <div class="row">
               <div class="col-lg-4">
-                {% for culture_posts in culture_posts|slice:":1" %}
+                {% for culture_posts in culture_posts|slice:"1:2" %}
                 <div class="post-entry-1 border-bottom">
-                  <a href="single-post.html"><img src="{{ MEDIA_URL }}{{ culture_posts.image }}" alt="" class="img-fluid"></a>
+                  <a href="single-post.html"><img src="{{MEDIA_URL}}{{ culture_posts.image }}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
                   <h2 class="mb-2"><a href="single-post.html">{{ culture_posts.title }}</a></h2>
                   <span class="author mb-3 d-block">Jenny Wilson</span>
                   <p class="mb-4 d-block">{{ culture_posts.content|truncatewords:30 }}</p>
                 </div>
                 {% endfor %}
-
-                {% for culture_posts in culture_posts|slice:"1:2" %}
-                <!--<a href="single-post.html"><img src="{{ MEDIA_URL }}{{ culture_posts.image }}" alt="" class="img-fluid"></a>--!>
+                {% for culture_posts in culture_posts|slice:"2:3" %}
                 <div class="post-entry-1">
                   <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
                   <h2 class="mb-2"><a href="single-post.html">{{ culture_posts.title }}</a></h2>
@@ -213,15 +211,15 @@
                 {% endfor %}
               </div>
               <div class="col-lg-8">
-                {% for culture_posts in culture_posts|slice:"3:4" %}
                 <div class="post-entry-1">
-                  <a href="single-post.html"><img src="{{ MEDIA_URL }}{{ culture_posts.image }}" alt="" class="img-fluid"></a>
+                  {% for culture_posts in culture_posts|slice:"3:4" %}
+                  <a href="single-post.html"><img src="{{MEDIA_URL}}{{ culture_posts.image }}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
                   <h2 class="mb-2"><a href="single-post.html">{{ culture_posts.title }}</a></h2>
                   <span class="author mb-3 d-block">Jenny Wilson</span>
-                  <p class="mb-4 d-block">{{ culture_posts.content|truncatewords:15 }}</p>
+                  <p class="mb-4 d-block">{{ culture_posts.content|truncatewords:30 }}</p>
+                  {% endfor %}
                 </div>
-                {% endfor %}
               </div>
             </div>
           </div>
