@@ -8,11 +8,19 @@ import random
 # Create your views here.
 def home(request):
     posts = Post.objects.all()
+    menu_categories = Category.objects.all()
     rand_post = random.choice(posts)
     template = loader.get_template('home.html')
+    culture_posts = posts.filter(categories__slug='culture')
+    business_posts = posts.filter(categories__slug='business')
+    lifestyle_posts = posts.filter(categories__slug='lifestyle')
     context = {
         'posts': posts,
+        'menu_categories': menu_categories,
         'rand_post': rand_post,
+        'culture_posts': culture_posts,
+        'business_posts': business_posts,
+        'lifestyle_posts': lifestyle_posts,
     }
     return HttpResponse(template.render(context, request))
 
