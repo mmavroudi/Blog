@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
-from .models import Post, Category
+from .models import Post, Category, Contact_Form
 import random
 
 
@@ -56,6 +56,15 @@ def category_view(request, category_slug):
     print("Category")
     category = get_object_or_404(Category, slug=category_slug)
     return render(request, 'category.html', {'category': category})
+
+def contact_view(request):
+    contact_forms = Contact_Form.objects.all()
+    template = loader.get_template('contact.html')
+    context = {
+        'contact_forms': contact_forms,
+    }
+    return HttpResponse(template.render(context, request))
+
 
 #def about_view(request):
  #   template = "about.html"
