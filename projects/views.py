@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
-from .models import Post, Category
+from django.core.mail import send_mail
+from .models import Post, Category, Contact_Details
+from .forms import ContactForm
 import random
 
 
@@ -56,6 +58,32 @@ def category_view(request, category_slug):
     print("Category")
     category = get_object_or_404(Category, slug=category_slug)
     return render(request, 'category.html', {'category': category})
+
+def contact_view(request):
+    form = ContactForm()
+
+    if form.is_valid():
+        name = form.cleaned_data['name']
+        sender = form.cleaned_data['sender']
+        subject = form.cleaned_data['subject']
+        message = form.cleaned_data['message']
+        cc_myself = form.cleaned_data['cc_myself']
+
+        recipients = ['info@example.com']
+        if cc_myself:
+            recipients.append(sender)
+
+        send_mail(name, sender, subject, message, recipients)
+        return HttpResponseRedirect('/thanks/')
+
+    rendered_form = form.render('contact.html')
+    context = {
+        'form': rendered_form,
+    }
+    return render(request, 'contact.html', context)
+
+
+
 
 #def about_view(request):
  #   template = "about.html"

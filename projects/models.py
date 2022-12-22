@@ -31,5 +31,18 @@ class Post(models.Model):
         return self.title
 
 
+class Contact_Details(models.Model):
+    name = models.CharField(max_length=40)
+    email = models.EmailField()
+    subject = models.CharField(max_length=40)
+    message = models.TextField()
+
+    class Meta:
+        ordering = ['name']
+
+    def __str__(self):
+        return self.name
+
+
 
 
