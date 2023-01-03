@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.db import models
 from django.urls import reverse
-
+from taggit.managers import TaggableManager
 # Create your models here.
 
 class Category(models.Model):
@@ -24,6 +24,7 @@ class Post(models.Model):
     content = models.TextField()
     image = models.ImageField(upload_to='uploads', height_field=None, width_field=None, max_length=100)
     slug = models.SlugField(null=False, unique=True)
+    tags = TaggableManager()
 
     class Meta:
         ordering = ['title']
