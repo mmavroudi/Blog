@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.core.mail import send_mail
 from .models import Post, Category, Contact_Details
-from .forms import ContactForm
+from .forms import ContactForm, PostForm
 import random
 
 
@@ -16,6 +16,15 @@ def home(request):
     culture_posts = posts.filter(categories__slug='culture')
     business_posts = posts.filter(categories__slug='business')
     lifestyle_posts = posts.filter(categories__slug='lifestyle')
+
+    if request.method == "POST":
+        form = MyFormClass(request.POST)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.user = request.user
+            obj.save()
+            form.save_m2m()
+
     context = {
         'posts': posts,
         'menu_categories': menu_categories,
@@ -24,6 +33,7 @@ def home(request):
         'business_posts': business_posts,
         'lifestyle_posts': lifestyle_posts,
     }
+
     return HttpResponse(template.render(context, request))
 
 def post_detail_view(request):
