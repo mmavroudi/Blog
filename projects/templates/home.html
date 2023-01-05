@@ -69,9 +69,9 @@
         <div class="row g-5">
           <div class="col-lg-4">
             <div class="post-entry-1 lg">
-              <a href="{{ rand_post.slug }}"><img src="{{ MEDIA_URL }}{{ rand_post.image }}" alt="" class="img-fluid"></a>
+              <a href="{% url 'single_post' slug=rand_post.slug %}"><img src="{{ MEDIA_URL }}{{ rand_post.image }}" alt="" class="img-fluid"></a>
               <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                <h2><a href="{{ rand_post.slug }}">{{ rand_post.title }}</a></h2>
+                <h2><a href="{% url 'single_post' slug=rand_post.slug %}">{{ rand_post.title }}</a></h2>
               <p class="mb-4 d-block">{{ rand_post.content|truncatewords:30 }}</p>
 
               <div class="d-flex align-items-center author">
@@ -90,9 +90,9 @@
               <div class="col-lg-4 border-start custom-border">
                 {% for post in posts|slice:":3" %}
                 <div class="post-entry-1">
-                  <a href="{{ post.slug }}"><img src="{{ MEDIA_URL }}{{ post.image }}" alt="" class="img-fluid"></a>
+                  <a href="{% url 'single_post' slug=post.slug %}"><img src="{{ MEDIA_URL }}{{ post.image }}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">Sport</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                  <h2><a href="{{ post.slug }}">{{ post.title }}</a></h2>
+                  <h2><a href="{% url 'single_post' slug=post.slug %}">{{ post.title }}</a></h2>
                 </div>
                 {% endfor %}
               </div>
@@ -100,9 +100,9 @@
               <div class="col-lg-4 border-start custom-border">
                 {% for post in posts|slice:"3:6" %}
                 <div class="post-entry-1">
-                  <a href="{{ post.slug }}"><img src="{{ MEDIA_URL }}{{ post.image }}" alt="" class="img-fluid"></a>
+                  <a href="{% url 'single_post' slug=post.slug %}"><img src="{{ MEDIA_URL }}{{ post.image }}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">Sport</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                  <h2><a href="{{ post.slug }}">{{ post.title }}</a></h2>
+                  <h2><a href="{% url 'single_post' slug=post.slug %}">{{ post.title }}</a></h2>
                 </div>
                 {% endfor %}
               </div>
@@ -174,12 +174,12 @@
 
             <div class="d-lg-flex post-entry-2">
               {% for culture_posts in culture_posts|slice:":1" %}
-              <a href="{{ culture_posts.slug }}" class="me-4 thumbnail mb-4 mb-lg-0 d-inline-block">
+              <a href="{% url 'single_post' slug=culture_posts.slug %}" class="me-4 thumbnail mb-4 mb-lg-0 d-inline-block">
                 <img src="{{MEDIA_URL}}{{ culture_posts.image }}" alt="" class="img-fluid">
               </a>
               <div>
                 <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                <h3><a href="{{ culture_posts.slug }}">{{ culture_posts.title }}</a></h3>
+                <h3><a href="{% url 'single_post' slug=culture_posts.slug %}">{{ culture_posts.title }}</a></h3>
                 <p> {{ culture_posts.content|truncatewords:30 }}</p>
               {% endfor %}
                 <div class="d-flex align-items-center author">
@@ -195,9 +195,9 @@
               <div class="col-lg-4">
                 {% for culture_posts in culture_posts|slice:"1:2" %}
                 <div class="post-entry-1 border-bottom">
-                  <a href="{{ culture_posts.slug }}"><img src="{{MEDIA_URL}}{{ culture_posts.image }}" alt="" class="img-fluid"></a>
+                  <a href="{% url 'single_post' slug=culture_posts.slug %}"><img src="{{MEDIA_URL}}{{ culture_posts.image }}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                  <h2 class="mb-2"><a href="{{ culture_posts.slug }}">{{ culture_posts.title }}</a></h2>
+                  <h2 class="mb-2"><a href="{% url 'single_post' slug=culture_posts.slug %}">{{ culture_posts.title }}</a></h2>
                   <span class="author mb-3 d-block">Jenny Wilson</span>
                   <p class="mb-4 d-block">{{ culture_posts.content|truncatewords:30 }}</p>
                 </div>
@@ -205,7 +205,7 @@
                 {% for culture_posts in culture_posts|slice:"2:3" %}
                 <div class="post-entry-1">
                   <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                  <h2 class="mb-2"><a href="{{ culture_posts.slug }}">{{ culture_posts.title }}</a></h2>
+                  <h2 class="mb-2"><a href="{% url 'single_post' slug=culture_posts.slug %}">{{ culture_posts.title }}</a></h2>
                   <span class="author mb-3 d-block">Jenny Wilson</span>
                 </div>
                 {% endfor %}
@@ -213,9 +213,9 @@
               <div class="col-lg-8">
                 <div class="post-entry-1">
                   {% for culture_posts in culture_posts|slice:"3:4" %}
-                  <a href="{{ culture_posts.slug }}"><img src="{{MEDIA_URL}}{{ culture_posts.image }}" alt="" class="img-fluid"></a>
+                  <a href="{% url 'single_post' slug=culture_posts.slug %}"><img src="{{MEDIA_URL}}{{ culture_posts.image }}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                  <h2 class="mb-2"><a href="{{ culture_posts.slug }}">{{ culture_posts.title }}</a></h2>
+                  <h2 class="mb-2"><a href="{% url 'single_post' slug=culture_posts.slug %}">{{ culture_posts.title }}</a></h2>
                   <span class="author mb-3 d-block">Jenny Wilson</span>
                   <p class="mb-4 d-block">{{ culture_posts.content|truncatewords:30 }}</p>
                   {% endfor %}
@@ -228,7 +228,7 @@
             {% for culture_posts in culture_posts %}
             <div class="post-entry-1 border-bottom">
               <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-              <h2 class="mb-2"><a href="{{ culture_posts.slug }}">{{ culture_posts.title }}</a></h2>
+              <h2 class="mb-2"><a href="{% url 'single_post' slug=culture_posts.slug %}">{{ culture_posts.title }}</a></h2>
               <span class="author mb-3 d-block">Jenny Wilson</span>
             </div>
             {% endfor %}
@@ -251,12 +251,12 @@
 
             {% for business_posts in business_posts|slice:":1" %}
             <div class="d-lg-flex post-entry-2">
-              <a href="{{ business_posts.slug }}" class="me-4 thumbnail d-inline-block mb-4 mb-lg-0">
+              <a href="{% url 'single_post' slug=business_posts.slug %}" class="me-4 thumbnail d-inline-block mb-4 mb-lg-0">
                 <img src="{{MEDIA_URL}}{{ business_posts.image }}" alt="" class="img-fluid">
               </a>
               <div>
                 <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                <h3><a href="{{ business_posts.slug }}">{{ business_posts.title }}</a></h3>
+                <h3><a href="{% url 'single_post' slug=business_posts.slug %}">{{ business_posts.title }}</a></h3>
                 <p>{{ business_posts.content|truncatewords:30 }}</p>
                 <div class="d-flex align-items-center author">
                   <div class="photo"><img src="{{STATIC_URL}}img/person-4.jpg" alt="" class="img-fluid"></div>
@@ -272,9 +272,9 @@
               <div class="col-lg-4">
                 {% for business_posts in business_posts|slice:"1:2" %}
                 <div class="post-entry-1 border-bottom">
-                  <a href="{{ business_posts.slug }}"><img src="{{MEDIA_URL}}{{ business_posts.image }}" alt="" class="img-fluid"></a>
+                  <a href="{% url 'single_post' slug=business_posts.slug %}"><img src="{{MEDIA_URL}}{{ business_posts.image }}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                  <h2 class="mb-2"><a href="{{ business_posts.slug }}">{{ business_posts.title }}</a></h2>
+                  <h2 class="mb-2"><a href="{% url 'single_post' slug=business_posts.slug %}">{{ business_posts.title }}</a></h2>
                   <span class="author mb-3 d-block">Jenny Wilson</span>
                   <p class="mb-4 d-block">{{ business_posts.content|truncatewords:20 }}</p>
                 </div>
@@ -283,7 +283,7 @@
                 {% for business_posts in business_posts|slice:"2:3" %}
                 <div class="post-entry-1">
                   <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                  <h2 class="mb-2"><a href="{{ business_posts.slug }}">{{ business_posts.title }}</a></h2>
+                  <h2 class="mb-2"><a href="{% url 'single_post' slug=business_posts.slug %}">{{ business_posts.title }}</a></h2>
                   <span class="author mb-3 d-block">Jenny Wilson</span>
                 </div>
                 {% endfor %}
@@ -291,9 +291,9 @@
               <div class="col-lg-8">
                 {% for business_posts in business_posts|slice:"3:4" %}
                 <div class="post-entry-1">
-                  <a href="{{ business_posts.slug }}"><img src="{{MEDIA_URL}}{{ business_posts.image }}" alt="" class="img-fluid"></a>
+                  <a href="{% url 'single_post' slug=business_posts.slug %}"><img src="{{MEDIA_URL}}{{ business_posts.image }}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                  <h2 class="mb-2"><a href="{{ business_posts.slug }}">{{ business_posts.title }}</a></h2>
+                  <h2 class="mb-2"><a href="{% url 'single_post' slug=business_posts.slug %}">{{ business_posts.title }}</a></h2>
                   <span class="author mb-3 d-block">Jenny Wilson</span>
                   <p class="mb-4 d-block">{{ business_posts.content|truncatewords:20 }}</p>
                 </div>
@@ -305,7 +305,7 @@
             {% for business_posts in business_posts %}
             <div class="post-entry-1 border-bottom">
               <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-              <h2 class="mb-2"><a href="{{ business_posts.slug }}">{{ business_posts.title }}</a></h2>
+              <h2 class="mb-2"><a href="{% url 'single_post' slug=business_posts.slug %}">{{ business_posts.title }}</a></h2>
               <span class="author mb-3 d-block">Jenny Wilson</span>
             </div>
             {% endfor %}
@@ -327,9 +327,9 @@
           <div class="col-lg-4">
             {% for lifestyle_posts in lifestyle_posts|slice:":1" %}
             <div class="post-entry-1 lg">
-              <a href="{{ lifestyle_posts.slug }}"><img src="{{MEDIA_URL}}{{ lifestyle_posts.image }}" alt="" class="img-fluid"></a>
+              <a href="{% url 'single_post' slug=lifestyle_posts.slug %}"><img src="{{MEDIA_URL}}{{ lifestyle_posts.image }}" alt="" class="img-fluid"></a>
               <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-              <h2><a href="{{ lifestyle_posts.slug }}">{{ lifestyle_posts.title }}</a></h2>
+              <h2><a href="{% url 'single_post' slug=lifestyle_posts.slug %}">{{ lifestyle_posts.title }}</a></h2>
               <p class="mb-4 d-block">{{ lifestyle_posts.content|truncatewords:30 }}</p>
 
               <div class="d-flex align-items-center author">
@@ -344,7 +344,7 @@
             {% for lifestyle_posts in lifestyle_posts|slice:"1:3" %}
             <div class="post-entry-1 border-bottom">
               <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-              <h2 class="mb-2"><a href="{{ lifestyle_posts.slug }}">{{ lifestyle_posts.title }}</a></h2>
+              <h2 class="mb-2"><a href="{% url 'single_post' slug=lifestyle_posts.slug %}">{{ lifestyle_posts.title }}</a></h2>
               <span class="author mb-3 d-block">Jenny Wilson</span>
             </div>
             {% endfor %}
@@ -355,18 +355,18 @@
               <div class="col-lg-4 border-start custom-border">
                 {% for lifestyle_posts in lifestyle_posts|slice:":3" %}
                 <div class="post-entry-1">
-                  <a href="{{ lifestyle_posts.slug }}"><img src="{{MEDIA_URL}}{{ lifestyle_posts.image }}" alt="" class="img-fluid"></a>
+                  <a href="{% url 'single_post' slug=lifestyle_posts.slug %}"><img src="{{MEDIA_URL}}{{ lifestyle_posts.image }}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                  <h2><a href="{{ lifestyle_posts.slug }}">{{ lifestyle_posts.title }}</a></h2>
+                  <h2><a href="{% url 'single_post' slug=lifestyle_posts.slug %}">{{ lifestyle_posts.title }}</a></h2>
                 </div>
                 {% endfor %}
               </div>
               <div class="col-lg-4 border-start custom-border">
                 {% for lifestyle_posts in lifestyle_posts|slice:"3:6" %}
                 <div class="post-entry-1">
-                  <a href="{{ lifestyle_posts.slug }}"><img src="{{MEDIA_URL}}{{ lifestyle_posts.image }}" alt="" class="img-fluid"></a>
+                  <a href="{% url 'single_post' slug=lifestyle_posts.slug %}"><img src="{{MEDIA_URL}}{{ lifestyle_posts.image }}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                  <h2><a href="{{ lifestyle_posts.slug }}">{{ lifestyle_posts.title }}</a></h2>
+                  <h2><a href="{% url 'single_post' slug=lifestyle_posts.slug %}">{{ lifestyle_posts.title }}</a></h2>
                 </div>
                 {% endfor %}
               </div>
@@ -375,7 +375,7 @@
                 {% for lifestyle_posts in lifestyle_posts %}
                 <div class="post-entry-1 border-bottom">
                   <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                  <h2 class="mb-2"><a href="{{ lifestyle_posts.slug }}">{{ lifestyle_posts.title }}</a></h2>
+                  <h2 class="mb-2"><a href="{% url 'single_post' slug=lifestyle_posts.slug %}">{{ lifestyle_posts.title }}</a></h2>
                   <span class="author mb-3 d-block">Jenny Wilson</span>
                 </div>
                 {% endfor %}
