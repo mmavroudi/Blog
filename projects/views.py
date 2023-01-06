@@ -92,12 +92,15 @@ def contact_view(request):
     }
     return render(request, 'contact.html', context)
 
+def album_detail_view(request, album_slug):
+    print("Album")
+    album_detail = get_object_or_404(Record, slug=album_slug)
+    return render(request, 'album_detail.html', {'album': album_detail})
 
 
 
-#def about_view(request):
- #   template = "about.html"
- #   return render(request, template)
+
+
 
 
 
