@@ -59,9 +59,9 @@ def random_post(request):
     return render(request, template, context)
 
 
-def single_post_view(request, post_id):
+def single_post_view(request, slug):
     print("Single Post")
-    single_post = get_object_or_404(Post, pk=post_id)
+    single_post = get_object_or_404(Post, slug=slug)
     return render(request, 'single_post.html', {'post': single_post})
 
 def category_view(request, category_slug):
