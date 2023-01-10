@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.core.mail import send_mail
-from .models import Post, Category, Contact_Details
+from .models import Post, Category, Contact_Details, Album
 from .forms import ContactForm, PostForm
 import random
 
@@ -92,12 +92,15 @@ def contact_view(request):
     }
     return render(request, 'contact.html', context)
 
+def album_detail(request, album_slug):
+    print("Album")
+    album_detail = get_object_or_404(Album, slug=album_slug)
+    return render(request, 'album_detail.html', {'album': album_detail})
 
 
 
-#def about_view(request):
- #   template = "about.html"
- #   return render(request, template)
+
+
 
 
 

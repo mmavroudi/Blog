@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Category
+from .models import Post, Category, Artist, Album
 
 # Register your models here.
 @admin.register(Post)
@@ -24,3 +24,17 @@ class MyModelAdmin(admin.ModelAdmin):
 
     def tag_list(self, obj):
         return u", ".join(o.name for o in obj.tags.all())
+
+@admin.register(Artist)
+class ArtistAdmin(admin.ModelAdmin):
+    pass
+    search_fields = ['name']
+    list_filter = ['name']
+
+@admin.register(Album)
+class AlbumAdmin(admin.ModelAdmin):
+    pass
+    search_fields = ['title', 'artist']
+    list_filter = ['title']
+    list_display = ['title', 'description']
+    prepopulated_fields = {'slug': ('title',)}
