@@ -16,6 +16,7 @@ def home(request):
     culture_posts = posts.filter(categories__slug='culture')
     business_posts = posts.filter(categories__slug='business')
     lifestyle_posts = posts.filter(categories__slug='lifestyle')
+    post_trending = posts.filter(tags__name__in=["trending"])
 
     if request.method == "POST":
         form = MyFormClass(request.POST)
@@ -32,6 +33,7 @@ def home(request):
         'culture_posts': culture_posts,
         'business_posts': business_posts,
         'lifestyle_posts': lifestyle_posts,
+        'post_trending': post_trending,
     }
 
     return HttpResponse(template.render(context, request))
