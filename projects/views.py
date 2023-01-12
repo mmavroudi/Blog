@@ -64,7 +64,17 @@ def random_post(request):
 def single_post_view(request, slug):
     print("Single Post")
     single_post = get_object_or_404(Post, slug=slug)
-    return render(request, 'single_post.html', {'post': single_post})
+    posts = Post.objects.all()
+    post_popular = posts.filter(tags__name__in=['popular'])[:6]
+    post_trending = posts.filter(tags__name__in=['trending'])[:6]
+    post_latest = posts.order_by('-pub_date')[:6]
+    context = {
+        'post': single_post,
+        'post_popular': post_popular,
+        'post_trending': post_trending,
+        'post_latest': post_latest,
+    }
+    return render(request, 'single_post.html', context)
 
 def category_view(request, category_slug):
     print("Category")
