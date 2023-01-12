@@ -16,7 +16,7 @@ def home(request):
     culture_posts = posts.filter(categories__slug='culture')
     business_posts = posts.filter(categories__slug='business')
     lifestyle_posts = posts.filter(categories__slug='lifestyle')
-    post_trending = posts.filter(tags__name__in=["trending"])
+    post_trending = posts.filter(tags__name__in=["trending"])[:6]
 
     if request.method == "POST":
         form = MyFormClass(request.POST)
