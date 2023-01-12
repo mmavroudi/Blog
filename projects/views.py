@@ -63,8 +63,8 @@ def single_post_view(request, slug):
     print("Single Post")
     single_post = get_object_or_404(Post, slug=slug)
     posts = Post.objects.all()
-    post_popular = posts.filter(tags__name__in=['popular'])
-    post_trending = posts.filter(tags__name__in=['trending'])
+    post_popular = posts.filter(tags__name__in=['popular'])[:6]
+    post_trending = posts.filter(tags__name__in=['trending'])[:6]
     post_latest = posts.order_by('-pub_date')[:6]
     context = {
         'post': single_post,
