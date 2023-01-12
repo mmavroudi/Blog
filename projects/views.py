@@ -65,7 +65,7 @@ def single_post_view(request, slug):
     posts = Post.objects.all()
     post_popular = posts.filter(tags__name__in=['popular'])
     post_trending = posts.filter(tags__name__in=['trending'])
-    post_latest = posts.order_by('-pub_date')
+    post_latest = posts.order_by('-pub_date')[:6]
     context = {
         'post': single_post,
         'post_popular': post_popular,
